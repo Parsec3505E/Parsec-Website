@@ -22,44 +22,45 @@
             margin: 0px;
         }
 
-        *,
-        *:before,
-        *:after {
-            box-sizing: inherit;
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
         }
 
-        .column {
-            float: left;
-            width: 33.3%;
-            margin-bottom: 16px;
-            padding: 0 8px;
-        }
-
-        @media screen and (max-width: 650px) {
-            .column {
-                width: 100%;
-                display: block;
-            }
-        }
-
-        .card {
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         }
 
-        .container {
-            padding: 0 16px;
-            font-family: 'Raleway', sans-serif;
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
         }
 
-        .container::after,
-        .row::after {
-            content: "";
-            clear: both;
-            display: table;
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
-        .title {
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
             color: white;
+            transform: rotateY(180deg);
             font-family: 'Raleway', sans-serif;
         }
     </style>
@@ -78,45 +79,19 @@
     <br>
     <br>
 
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <img src="Josh.jpg" alt="Jane" style="width:100%; border-radius: 25px;">
-                <div class="container">
-                    <h2>Josh</h2>
-                    <p class="title">Programming & Strategy</p>
-                    <p>Hi, my name is Josh and I'm currently in grade 12. This is my 4th season doing VRC and I mainly
-                        focus on programming and strategy alongside being our team's driver coach. Besides being on
-                        Parsec, I've been apart of other robotics teams such as FRC (4 years), WRO (3 years) and FLL (1
-                        year). I'm hoping that in this last season of mine, that we can become tournament champions and
-                        perform as top tier teams do at the highest level of competition.</p>
-                </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
             </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
-                <div class="container">
-                    <h2>Mike Ross</h2>
-                    <p class="title">Art Director</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-                <div class="container">
-                    <h2>John Doe</h2>
-                    <p class="title">Designer</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
+            <div class="flip-card-back">
+                <h1>Josh</h1>
+                <p>Programming & Strategy</p>
+                <p>Hi, my name is Josh and I'm currently in grade 12. This is my 4th season doing VRC and I mainly focus
+                    on programming and strategy alongside being our team's driver coach. Besides being on Parsec, I've
+                    been apart of other robotics teams such as FRC (4 years), WRO (3 years) and FLL (1 year). I'm hoping
+                    that in this last season of mine, that we can become tournament champions and perform as top tier
+                    teams do at the highest level of competition.</p>
             </div>
         </div>
     </div>
