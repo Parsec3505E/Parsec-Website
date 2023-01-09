@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>3505E Parsec</title>
+    <link rel="icon" type="image/x-icon" href="ParsecLogo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        html,
+        body {
+            background-color: #E05252;
+            margin: 0px;
+        }
+
+        .header {
+            padding: 175px;
+            text-align: left;
+            background-image: url('header.jpg');
+            color: white;
+            font-size: 45px;
+            font-family: 'Raleway', sans-serif;
+            opacity: 75%;
+            line-height: 40px;
+        }
+
+        #WhoWeAre {
+            text-align: left;
+            padding: 75px;
+            color: #E05252;
+            background-color: white;
+            font-family: 'Raleway', sans-serif;
+            margin: 0px;
+            line-height: 175%
+        }
+
+        #OurGoal {
+            text-align: center;
+            padding: 75px;
+            color: black;
+            font-family: 'Raleway', sans-serif;
+            margin: 0px;
+            padding-right: 200px;
+            padding-left: 200px;
+            line-height: 175%
+        }
+
+        #Sponsors {
+            text-align: center;
+            padding: 75px;
+            color: black;
+            background-color: white;
+            font-family: 'Raleway', sans-serif;
+            margin: 0px;
+            padding-right: 200px;
+            padding-left: 200px;
+            line-height: 175%
+        }
+
+        .footer {
+            margin: 0px;
+            padding: 75px 15%;
+            background: #818181;
+            color: #efefef;
+            display: flex;
+            padding-top: 25px;
+            padding-bottom: 50px;
+            text-decoration: none;
+        }
+
+        .footer div {
+            text-align: center;
+        }
+
+        .col-2 {
+            flex-grow: 2;
+        }
+
+        .footer div h1 {
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .col-1 a {
+            display: block;
+            color: #efefef;
+            text-decoration: none;
+            line-height: 160%;
+        }
+
+        .parallax {
+            background-image: url("img1.png");
+
+            min-height: 250px;
+            width: 100%;
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .Outreach {
+            height: 300vh;
+            display: flex;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .outreach-title {
+            width: 50%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 !important;
+            background-color: white;
+        }
+
+        .outreach-pages {
+            width: 50%;
+        }
+
+        .outreach-pages div {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 25vh;
+            align-items: center;
+        }
+
+        .outreach-pages div:nth-child(1) {
+            background-color: #575757;
+        }
+
+        .outreach-pages div:nth-child(2) {
+            background-color: #936767;
+        }
+
+        .outreach-pages div:nth-child(3) {
+            background-color: #963e3e;
+        }
+
+        .outreach-pages div:nth-child(4) {
+            background-color: #6d1b1b;
+        }
+
+        .row {
+            margin: 8px -16px;
+        }
+
+        .row,
+        .row>.column {
+            padding: 8px;
+        }
+
+        .column {
+            float: left;
+            width: 20%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .content {
+            background-color: white;
+            padding: 10px;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: white;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        /* Container around content */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 43.25%;
+        }
+
+        /* The circles on the timeline */
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #000000;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Place the container to the left */
+        .left {
+            right: 0%;
+        }
+
+        /* Place the container to the right */
+        .right {
+            left: 50%;
+        }
+
+        /* Add arrows to the left container (pointing right) */
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Fix the circle for containers on the right side */
+        .right::after {
+            left: -16px;
+        }
+
+        /* The actual content */
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #963e3e;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            font-family: 'Raleway', sans-serif;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            margin-left: 50px;
+        }
+
+        .navbar a:hover {
+            color: black;
+        }
+
+        .main {
+            padding: 16px;
+            margin-top: 30px;
+            height: 1500px;
+            /* Used in this example to enable scrolling */
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 25px;
+            height: 25px;
+            width: 25px;
+        }
+
+        #myBtn:hover {
+            background-color: #963e3e;
+            color: #000000;
+        }
+
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+
+            /* Place the timelime to the left */
+            .timeline::after {
+                left: 31px;
+            }
+
+            /* Full-width containers */
+            .container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            /* Make sure that all arrows are pointing leftwards */
+            .container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            /* Make sure all circles are at the same spot */
+            .left::after,
+            .right::after {
+                left: 15px;
+            }
+
+            /* Make all right containers behave like the left ones */
+            .right {
+                left: 0%;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .column {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+    </style>
+
+</head>
+
+<body>
+
+    <center>
+        <i class="material-icons" onclick="topFunction()" style="font-size:26px" id="myBtn">&#xe5ce;</i>
+    </center>
+
+    <div class="navbar">
+        <a href="#about-us">About Us</a>
+        <a href="#our-goal">Our Goal</a>
+        <a href="#outreach">Outreach</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#sponsor">Sponsors</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+    <div class="header">
+        <img src="ParsecLogoWhite.png" alt="Parsec logo" width="190" height="185">
+        <h1>3505E Parsec</h1>
+        <p style="font-size: 30px">A VEX Robotics Team</p>
+    </div>
+
+    <section id="WhoWeAre">
+        <p><img src="team.jpg" width="475px" height="300px" style="float: right; margin-left: 25px;"></p>
+        <br>
+        <h1 id="about-us">WHO WE ARE:</h1>
+        <p>Parsec 3505E is a VEX robotics team from Mississauga made up
+            of 16 members including team members and mentors. We are a
+            part of an organization called Zebra Robotics which was
+            founded in 2014 and thrives to empower people with robotics,
+            coding, and technology. We participate in the VEX Robotics Competition (VRC), an
+            international robotics competition that challenges teams to
+            design and build a robot to compete against other robots in
+            varying tasks each season. Competitions start locally and
+            expand to a provincial and eventually international level,
+            with teams from all across the world.</p>
+        <br>
+    </section>
+
+    <div class="parallax"></div>
+
+    <section id="OurGoal">
+        <h1 id="our-goal">OUR GOAL</h1>
+        <p>
+            Parsec comes from Zebra Robotics, a STEM education school
+            spanning dozens of locations and 3+ nations. Being in an
+            environment that allows exposure to youth of all ages that
+            are interested in STEAM, Parsec has been a leader at Zebra,
+            providing guidance and assistance to younger students who are
+            excited about what we do. We strive to continue to be a role
+            model in both our organization and wider communities, by
+            creating a space where everyone can be the best by learning
+            from the best.
+        </p>
+    </section>
+
+    <section class="Outreach">
+        <div class="outreach-title">
+            <h1 id="outreach" style="font-size: 45px;">Outreach</h1>
+        </div>
+        <div class="outreach-pages">
+            <div>
+                <h1>Fun Tech Showcases</h1>
+                <center>
+                    <p style="padding: 50px; line-height: 25px">Our team showcased an interactive booth
+                        with our VEX Tipping Point robot at a
+                        tech fun event to show what it means to
+                        participate in these robotics
+                        competitions. In addition, we allowed
+                        participants to do these mini challenges
+                        that we created to immerse them in all
+                        that robotics and VEX has to offer. </p>
+                </center>
+            </div>
+            <div>
+                <h1>GEARS Workshops</h1>
+                <center>
+                    <p style="padding: 50px; line-height: 25px">We helped organize girls in
+                        engineering, arts, robotics, and
+                        science (GEARS) workshops with female
+                        speakers that are in the STEAM industry
+                        to influence girls into becoming more
+                        aware of the limitless possibilities in
+                        the different STEAM fields.
+                    </p>
+                </center>
+            </div>
+            <div>
+                <h1>Science Rendezvous</h1>
+                <center>
+                    <p style="padding: 50px; line-height: 25px">We participated at the yearly Science
+                        Rendezvous event hosted by the University
+                        of Toronto and within our own booth
+                        demonstrated a robot our team had built.
+                        Not only did we successfully engage adults
+                        and children alike about what it means to
+                        be a member of our team, we also showed
+                        how we want to impact the STEAM field,
+                        beyond just the competitive scene.
+                    </p>
+                </center>
+            </div>
+            <div>
+                <h1>Hack-A-Thon</h1>
+                <center>
+                    <p style="padding: 50px; line-height: 25px;">We hosted our very own event at Zebra
+                        Robotics: a virtual hackathon for
+                        students of different ages. Our members
+                        hosted, judged and made this whole
+                        event come to life. This was our way of
+                        making a lasting impact during the
+                        pandemic, while maintaining the safety
+                        of everyone involved.
+                    </p>
+                </center>
+            </div>
+        </div>
+    </section>
+
+    <section class="Timeline">
+        <br>
+        <br>
+        <center>
+            <h1 id="timeline" style="font-family: 'Raleway', 'sans-serif'; font-size: 40px;">Timeline</h1>
+        </center>
+        <br>
+        <div class="timeline" style="font-family: 'Raleway', 'sans-serif';">
+            <div class="container right">
+                <div class="content">
+                    <h2>2017</h2>
+                    <p>founded</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>2019</h2>
+                    <p>Won the Judges Award and became tournament finalist</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>2022</h2>
+                    <p>Won Regional Build Award, Provincial Design Award, and became Worlds Qualifiers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section id="Sponsors">
+        <h1 id="sponser">SPONSORS</h1>
+        <img src="Sam Premaratne Logo.png" width="350px" height="309px" style="padding-right: 75px;">
+        <img src="Glen Abbey Italian Bakery Logo.png" width="387px" height="158px">
+    </section>
+
+    <footer>
+        <section class="footer">
+            <div class="col-1">
+                <h1 style="font-family: 'Raleway', sans-serif;">Menu:</h1>
+                <a style="font-family: 'Raleway', sans-serif;" href="#about-us">About Us</a>
+                <a style="font-family: 'Raleway', sans-serif;" href="#our-goal">Our Goal</a>
+                <a style="font-family: 'Raleway', sans-serif;" href="#outreach">Outreach</a>
+                <a style="font-family: 'Raleway', sans-serif;" href="#timeline">Timeline</a>
+                <a style="font-family: 'Raleway', sans-serif;" href="#sponser">Sponsors</a>
+                <a style="font-family: 'Raleway', sans-serif;" href="#contact">Contact Info</a>
+            </div>
+            <div class="col-2">
+                <h1 id="contact" style="font-family: 'Raleway', sans-serif;">Contact Us:</h1>
+                <center>
+                    <img src="ParsecLogo.png" width="107px" height="100px">
+                </center>
+                <p style="font-family: 'Raleway', sans-serif; font-size: 15px;">Email: parsec.3505e@gmail.com</p>
+                <p style="font-family: 'Raleway', sans-serif; font-size: 15px;">Instagram: parsec3505e</p>
+            </div>
+            <div class="col-3">
+                <h1 style="font-family: 'Raleway', sans-serif;">Zebra Robotics:</h1>
+                <p style="font-family: 'Raleway', sans-serif; font-size: 15px;">Website: zebrarobotics.com</p>
+            </div>
+        </section>
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js">
+    </script>
+
+    <script>
+        function splitScroll() {
+            const controller = new ScrollMagic.Controller();
+
+            new ScrollMagic.Scene({
+                duration: '200%',
+                triggerElement: '.outreach-title',
+                triggerHook: 0
+            })
+
+                .setPin('.outreach-title')
+                .addTo(controller);
+        }
+
+        splitScroll();
+
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
+
+</body>
+
+</html>
